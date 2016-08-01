@@ -1,33 +1,24 @@
 import React from 'react';
-require('babel-polyfill');
 
 export default class App extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			a: 1233216,
+			a: "zxczxcvvzxcv",
 		};
 	}
 
-	async componentDidMount() {
-		await this.sleep(1000);
-		console.log(211);
+	componentDidMount() {
+		console.log('11asasdfdf212');
 	}
-
-	sleep (time) {
-		return new Promise(function (resolve, reject) {
-			setTimeout(function () {
-				resolve();
-			}, time);
-		})
-	};
 
 
 	render() {
 		return (
 			<div>
 				<p>{this.state.a}</p>
+				<p>{this.state.b}</p>
 			</div>
 		);
 	}

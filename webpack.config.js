@@ -1,43 +1,61 @@
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
 	entry: [
-		"webpack-dev-server/client?http://localhost:8080",
-		"./src/index.js",
+		path.resolve(__dirname, 'src/index.js')
 	],
 	output: {
-		path: './content',
-		filename: '[name].bundle.js',
-		publicPath: "/test/",
+		path: path.resolve(__dirname, 'content'),
+		filename: 'index.bundle.js',
 	},
+
+	resolve: {
+		modulesDirectories: [
+			'src',
+			'node_modules',
+		],
+		extensions: ['', '.json', '.js']
+	},
+
 	module: {
 		loaders: [
-			{ 
+			{
 				test: /\.css$/,
 				loader: "style!css" ,
 			},
 			{
-				test: /\.js$/, 
+				test: /\.js$/,
 				loader: 'babel-loader' ,
 				query:{
-       				presets: ['es2015','react'],
-      			},
+					presets: ['es2015','react'],
+				},
 			},
-            {
-            	test: /\.scss$/, 
-            	loader: 'style!css!sass?sourceMap',
-            },
-            {
-            	test: /\.(png|jpg)$/,
-            	loader: 'url-loader?limit=8192',
-            },
+			{
+				test: /\.scss$/,
+				loader: 'style!css!sass?sourceMap',
+			},
+			{
+				test: /\.(png|jpg)$/,
+				loader: 'url-loader?limit=8192',
+			},
 		]
 	},
-	watch: true,
-	resolve: {
-		extensions: ['', '.js', '.jsx']
-	},
-	devServer: {
+
+	plugins:[
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV:JSON.stringify('production'),
+			},
+		}),
+		// new webpack.HotModuleReplacementPlugin(), 这玩意儿时灵时不灵=-=
+	],
+
+	devServer:{
+		contentBase:'./content',
 		hot: true,
-		inline: true
-	}
+		//inline: true, 跟上面那货一起……
+		historyApiFallback: true,
+		port: 3000,
+	},
 };
