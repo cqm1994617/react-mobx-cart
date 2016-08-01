@@ -54,7 +54,7 @@ module.exports = {
 	devServer:{
 		contentBase:'./content',
 		hot: true,
-		//inline: true, 跟上面那货一起……
+		//inline: true, 跟上面那货一起…………
 		historyApiFallback: true,
 		port: 3000,
 	},
