@@ -8,3 +8,5 @@ react脚手架
 
 先安装webpack-dev-server
 npm install webpack-dev-server -g
+
+之后在根目录下运行npm install
