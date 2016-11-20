@@ -1,9 +1,9 @@
+import AppState from './AppState';
 import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppState from './AppState';
 require('babel-polyfill');
 
-const appstate = new AppState();
+const appState = new AppState();
 
-ReactDOM.render(<App appState={appstate} />, document.getElementById('container'));
+ReactDOM.render(<App appState={appState} />, document.getElementById('container'));
