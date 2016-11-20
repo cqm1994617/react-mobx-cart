@@ -2,7 +2,11 @@
     "presets": [
         "react",
         "es2015",
-        "stage-3"
+        "stage-1"
     ],
-    "plugins": []
+    "plugins": [
+        "transform-decorators-legacy",
+        "syntax-async-functions",
+        "transform-async-to-generator"
+    ]
 }
