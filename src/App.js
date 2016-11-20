@@ -10,8 +10,13 @@ export default class App extends React.Component {
   };
 
   render() {
+    const { appState } = this.props;
     return (
-      <div>123456</div>
+      <div>
+        <p>{appState.timer}</p>
+        <button onClick={() => appState.addTimer()}>增加</button>
+        <button onClick={() => appState.subTimer()}>减少</button>
+      </div>
     );
   }
 }
