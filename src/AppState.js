@@ -1,11 +1,17 @@
-import { observable} from 'mobx';
+import { observable, computed } from 'mobx';
 
 export default class AppState {
-  @observable timer = 0;
-  addTimer() {
-    this.timer ++;
+  @observable value = 0;
+  addValue() {
+    this.value ++;
   }
-  subTimer() {
-    this.timer --;
+  subValue() {
+    this.value --;
+  }
+  @computed get getValue() {
+    return this.value * 10;
+  }
+  getTheValue() {
+    return this.value * 10;
   }
 }

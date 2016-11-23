@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { observer } from 'mobx-react';
 import './main.scss';
+import DevTools from 'mobx-react-devtools';
 
 @observer
 export default class App extends React.Component {
@@ -13,9 +14,8 @@ export default class App extends React.Component {
     const { appState } = this.props;
     return (
       <div>
-        <p>{appState.timer}</p>
-        <button onClick={() => appState.addTimer()}>增加</button>
-        <button onClick={() => appState.subTimer()}>减少</button>
+        <DevTools />
+        
       </div>
     );
   }
