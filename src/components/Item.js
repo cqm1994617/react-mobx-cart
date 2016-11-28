@@ -1,4 +1,5 @@
 import React from 'react';
+import ModalState from '../stores/ModalState';
 
 export default class Item extends React.Component {
 
@@ -8,12 +9,19 @@ export default class Item extends React.Component {
 
   static contextTypes = {
     appStore: React.PropTypes.object,
-  }
+  };
 
   render() {
-    console.log(this.context);
+    const { text, id } = this.props;
+    const { appStore } = this.context;
     return (
-      <div className="item" onClick="">{this.props.text}</div>
+      <div className="item">
+        <p>{id + 1}、{text}</p>
+        <div>
+          <button onClick={() => ModalState.showModal(id)}>编辑</button>
+          <button onClick={() => appStore.removeTodo(id)}>删除</button>
+        </div>
+      </div>
     );
   }
 }

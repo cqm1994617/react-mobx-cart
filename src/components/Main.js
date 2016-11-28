@@ -12,8 +12,8 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.props.appStore.todos.map(z => <Item text={z} />)}
+      <div className="main">
+        {this.props.appStore.todos.map((z, i) => <Item text={z} id={i} />)}
       </div>
     );
   }
