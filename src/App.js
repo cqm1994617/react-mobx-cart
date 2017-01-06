@@ -1,11 +1,8 @@
 import React, { PropTypes } from 'react';
 import { observer } from 'mobx-react';
-import EditModal from './components/EditModal';
 import './main.scss';
 import DevTools from 'mobx-react-devtools';
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
+import { Button } from 'antd-mobile';
 
 @observer
 export default class App extends React.Component {
@@ -28,10 +25,7 @@ export default class App extends React.Component {
     return (
       <div className="container">
         <DevTools />
-        <Header appStore={appStore} />
-        <Main appStore={appStore} />
-        <EditModal />
-        <Footer />
+        <Button>12</Button>
       </div>
     );
   }
