@@ -1,31 +1,47 @@
-import React, { PropTypes } from 'react';
-import { observer } from 'mobx-react';
-import './main.scss';
-import DevTools from 'mobx-react-devtools';
-import { Button } from 'antd-mobile';
+import React from 'react';
+import {observable, useStrict, action, computed, extendObservable} from 'mobx';
+import {observer} from 'mobx-react';
+
+//useStrict(true);
+
+class MyState {
+  @observable num1 = 0;
+  @observable num2 = 100;
+
+  @action addNum1 = () => {
+    this.num1 ++;
+  };
+  @action addNum2 = () => {
+    this.num2 ++;
+  };
+  @computed get total() {
+    return this.num1 + this.num2;
+  }
+}
+
+const newState = new MyState();
+
+const AllNum = observer((props) => <div>num1 + num2 = {props.store.total}</div>);
+
+const Main = observer((props) => (
+  <div>
+    <p>num1 = {props.store.num1}</p>
+    <p>num2 = {props.store.num2}</p>
+    <div>
+      <button onClick={props.store.addNum1}>num1 + 1</button>
+      <button onClick={props.store.addNum2}>num2 + 1</button>
+    </div>
+  </div>
+));
 
 @observer
 export default class App extends React.Component {
 
-  static propTypes = {
-    appStore: React.PropTypes.object,
-  };
-
-  static childContextTypes = {
-    appStore: React.PropTypes.object,
-  };
-  getChildContext() {
-    return {
-      appStore: this.props.appStore,
-    };
-  }
-
   render() {
-    const { appStore } = this.props;
     return (
-      <div className="container">
-        <DevTools />
-        <Button>12</Button>
+      <div>
+        <Main store={newState} />
+        <AllNum store={newState} />
       </div>
     );
   }

@@ -48,13 +48,13 @@ module.exports = {
 				NODE_ENV:JSON.stringify('production'),
 			},
 		}),
-		// new webpack.HotModuleReplacementPlugin(), 这玩意儿时灵时不灵=-=
+		new webpack.HotModuleReplacementPlugin(), //这玩意儿时灵时不灵=-=
 	],
 
 	devServer:{
 		contentBase:'./content',
 		hot: true,
-		//inline: true, 跟上面那货一起…………
+		inline: true, //跟上面那货一起…………
 		historyApiFallback: true,
 		port: 3000,
 	},
