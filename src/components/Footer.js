@@ -1,15 +1,13 @@
-import React from 'react';
-import { observer } from 'mobx-react';
-import AppState from '../stores/AppState';
+import React, {PropTypes} from 'react';
 
-@observer
-export default class Footer extends React.Component {
+const Footer = (props, {store}) => (
+  <div className="footer">
+    <p>fads {store.a}</p>
+  </div>
+);
 
-  render() {
-    return (
-      <div className="foot">
-        <p>总条数: {AppState.total}</p>
-      </div>
-    );
-  }
-}
+Footer.contextTypes = {
+  store: PropTypes.object
+};
+
+export default Footer;

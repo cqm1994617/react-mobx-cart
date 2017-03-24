@@ -1,20 +1,14 @@
-import { observable, computed, autorun } from 'mobx';
+import {observable, useStrict, action, computed} from 'mobx';
+import {data} from '../mock/data';
 
-class AppState {
-  @observable todos = [];
-  addTodo(text) {
-    this.todos.push(text);
+useStrict(true);
+
+export default class AppState {
+
+  @observable list = data;
+
+  @action removeItem = (i) => {
+    list.removeItem(i);
   }
-  editTodo(index, value) {
-    this.todos[index] = value;
-  }
-  removeTodo(index) {
-    this.todos.splice(index, 1);
-  }
-  @computed get total() {
-    return this.todos.length;
-  }
+
 }
-const newState = new AppState();
-
-export default newState;

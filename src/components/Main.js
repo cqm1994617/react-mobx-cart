@@ -1,19 +1,17 @@
-import React from 'react';
-import { observer } from 'mobx-react';
+import React, { PropTypes } from 'react';
+import CartItem from './CartItem';
 
-import Item from './Item';
-
-@observer
 export default class Main extends React.Component {
 
-  static propTypes = {
-    appStore: React.PropTypes.object,
+  static contextTypes = {
+    store: PropTypes.object,
   };
 
   render() {
+    const { store } = this.context;
     return (
       <div className="main">
-        {this.props.appStore.todos.map((z, i) => <Item text={z} id={i} />)}
+        {store.list.map((z, i) => <CartItem data={z} key={i} />)}
       </div>
     );
   }

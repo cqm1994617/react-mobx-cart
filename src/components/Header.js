@@ -1,36 +1,13 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
+const Header = (props, {store}) => (
+  <div className="head">
+    {store.a}
+  </div>
+);
 
-export default class Header extends React.Component {
+Header.contextTypes = {
+  store: PropTypes.object
+};
 
-  static propTypes = {
-    appStore: React.PropTypes.object,
-  };
-
-  static contextTypes = {
-    appStore: React.PropTypes.object,
-  };
-
-  state = {
-    value: '',
-  };
-
-  changeValue(z) {
-    this.setState({
-      value: z,
-    });
-  };
-
-  add = () => {
-    this.props.appStore.addTodo(this.state.value);
-  };
-
-  render() {
-    return (
-      <div className="header">
-        <input type="text" onChange={(z) => this.changeValue(z.target.value)} />
-        <button onClick={this.add}>添加</button>
-      </div>
-    );
-  }
-}
+export default Header;
