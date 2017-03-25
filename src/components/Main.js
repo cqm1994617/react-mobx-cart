@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, {PropTypes} from 'react';
 import CartItem from './CartItem';
 
 export default class Main extends React.Component {
@@ -8,10 +8,10 @@ export default class Main extends React.Component {
   };
 
   render() {
-    const { store } = this.context;
+    const {store} = this.context;
     return (
       <div className="main">
-        {store.list.map((z, i) => <CartItem data={z} key={i} />)}
+        {store.list.map((z, i) => <CartItem data={z} key={i}/>)}
       </div>
     );
   }

@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Microsoft YaHei';
+  outline: none;
 }
 
 input::-ms-clear{
@@ -10,10 +11,56 @@ input::-ms-clear{
 
 .head {
   padding: 15px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+  display: flex;
+}
+
+.head-item {
+  flex: 1;
+  text-align: center;
 }
 
 .container {
-  max-width: 640px;
+  max-width: 960px;
   margin: auto;
   border: 1px solid #ccc;
+}
+
+.cart-item {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  text-align: center;
+  & > .c-buyNum {}
+}
+
+.cart-item:last-of-type {
+  border-bottom: none;
+}
+
+.cart-item-box {
+  color: #777;
+  flex: 1;
+  word-break: break-all;
+}
+
+.c-name {
+  flex: 2;
+}
+.c-buyNum {
+  flex: 2;
+  button {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  input {
+    height: 40px;
+    box-sizing: border-box;
+  }
 }
