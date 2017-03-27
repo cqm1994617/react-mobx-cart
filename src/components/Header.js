@@ -3,13 +3,14 @@ import { observer } from 'mobx-react';
 
 const Header = observer((props, {store}) => (
   <div className="head">
-    <div className="head-item">
+    <label for="selectAll" className="head-item">
       <input
+        id="selectAll"
         type="checkbox"
         checked={store.checkedAll}
         onChange={store.onCheckedAll}
       /> 全选
-    </div>
+    </label>
     <div className="head-item c-name">商品</div>
     <div className="head-item">单价</div>
     <div className="head-item c-buyNum">数量</div>

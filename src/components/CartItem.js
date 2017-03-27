@@ -18,13 +18,14 @@ export default class CartItem extends React.Component {
 
     return (
       <div className="cart-item">
-        <div className="cart-item-box c-select">
+        <label for={`check${data.id}`} className="cart-item-box c-select">
           <input
+            id={`check${data.id}`}
             type="checkbox"
             checked={data.checked}
             onChange={() => store.onChecked(data.id)}
           />
-        </div>
+        </label>
         <div className="cart-item-box c-name">{data.name}</div>
         <div className="cart-item-box c-price">¥{data.price}</div>
         <div className="cart-item-box c-buyNum">
