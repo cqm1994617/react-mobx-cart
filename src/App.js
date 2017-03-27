@@ -16,6 +16,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <div className="container">
+          <h1>React+Mobx购物车示例</h1>
           <Header />
           <Main />
           <Footer />

@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react';
 import CartItem from './CartItem';
+import {observer} from 'mobx-react';
 
+@observer
 export default class Main extends React.Component {
 
   static contextTypes = {

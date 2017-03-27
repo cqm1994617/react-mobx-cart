@@ -5,6 +5,11 @@
   outline: none;
 }
 
+h1 {
+  margin: 20px 0;
+  text-align: center;
+}
+
 input::-ms-clear{
   display: none;
 }
@@ -12,6 +17,7 @@ input::-ms-clear{
 .head {
   padding: 15px;
   box-sizing: border-box;
+  border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   display: flex;
 }
@@ -22,7 +28,7 @@ input::-ms-clear{
 }
 
 .container {
-  max-width: 960px;
+  width: 960px;
   margin: auto;
   border: 1px solid #ccc;
 }
@@ -45,22 +51,43 @@ input::-ms-clear{
   color: #777;
   flex: 1;
   word-break: break-all;
+  line-height: 40px;
 }
 
 .c-name {
   flex: 2;
 }
+
+.c-delete:hover {
+  cursor: pointer;
+}
+
 .c-buyNum {
   flex: 2;
-  button {
+  display: flex;
+  justify-content: center;
+  div {
     width: 40px;
     height: 40px;
+    user-select:none;
+    line-height: 38px;
     background-color: #fff;
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
+  div:hover {
+    cursor: pointer;
+  }
   input {
     height: 40px;
+    width: 50px;
+    color: #999;
+    text-align: center;
     box-sizing: border-box;
   }
+}
+
+.footer {
+  border-top: 1px solid #eee;
+  padding: 15px;
 }

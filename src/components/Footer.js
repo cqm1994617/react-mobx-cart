@@ -1,10 +1,11 @@
 import React, {PropTypes} from 'react';
+import {observer} from 'mobx-react';
 
-const Footer = (props, {store}) => (
+const Footer = observer((props, {store}) => (
   <div className="footer">
-    <p>fads {store.a}</p>
+    <p>合计: {store.totalPrice}元</p>
   </div>
-);
+));
 
 Footer.contextTypes = {
   store: PropTypes.object
